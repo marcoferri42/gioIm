@@ -1,0 +1,55 @@
+<div style="background: #70a3ea; color: #fff; padding-top: 1%;">
+    <div style=" width: 80%; margin: 0 auto; color: black;" class="rounded-top" *ngFor="let item of items">
+        <div class="card">
+            <div class="card__title">
+              <div class="icon">
+                <a href="#"><i class="fa fa-arrow-left"></i></a>
+              </div>
+              <h3>{{page_name}}</h3>
+            </div>
+            <div class="card__body">
+
+              <div class="half">
+                <div class="featured_text">
+                  <h1 class="name">{{item.name}}</h1>
+                  <br>
+                  <p class="location">{{item.location}}</p>
+                  <br>
+                  <p class="price">{{item.price}}</p>
+                </div>
+
+                <div class="image">
+                  <img src={{item.img}} alt="">
+                </div>
+              </div>
+              
+              <div class="half">
+                <div class="description">
+                  <div class = "scroll shadow-lg p-3 mb-5 bg-white rounded">
+                    {{item.description}}
+                 </div>
+                </div>
+              </div>
+            
+            </div>
+            <div class="card__footer" *ngIf="checkUser()">
+              <div class="recommend">
+                <p>Modalità Admin</p>
+
+                <div class="button" id="button-2">
+                  <div id="slide"></div>
+                  <a (click)="edit(item)" (click)="openDialog()">MODIFICA</a>
+                </div>
+
+                <div class="button" id="button-2">
+                  <div id="slide"></div>
+                  <a (click)="delete(item)">ELIMINA</a>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <br>
+    </div>
+    
+</div>

@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Modifica Annuncio</h2>
+
+
+<form (ngSubmit)="onSubmit()" #editForm="ngForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input matInput placeholder="Nome Annuncio" value={{selectedItem.name}} class="form-control" [(ngModel)]="selectedItem.name" id="name" required name="name">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prezzo</mat-label>
+    <input matInput placeholder="Prezzo Annuncio" value={{selectedItem.price}} class="form-control" [(ngModel)]="selectedItem.price" id="price" required name="price">
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Posto</mat-label>
+    <input matInput placeholder="Posto Annuncio" value={{selectedItem.location}} class="form-control" [(ngModel)]="selectedItem.location" id="location" required name="location">
+  </mat-form-field>
+
+  <br>
+
+  <textarea cols="50" rows="15" value={{selectedItem.description}} class="form-control" [(ngModel)]="selectedItem.description" id="description" required name="description"></textarea>
+
+</form>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Annulla</button>
+  <button mat-button (click)="onSubmit()">Salva</button>
+</mat-dialog-actions>
