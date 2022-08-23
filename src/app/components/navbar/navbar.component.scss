@@ -1,12 +1,12 @@
 img {
     display: inline-block;
-    width: 50%;
+    width: 35%;
     height: auto;
 }
 
 @media (max-width: 400px) {
   img {
-    width: 100%; // Override width to show only one image in a row on smaller screens
+    width: 80%; // Override width to show only one image in a row on smaller screens
   }
 }
 
@@ -49,16 +49,16 @@ body {
   /* By Dominik Biedebach @domobch */
   
   section {
-	height: 100vh;
+	height: 20vh;
   }
   
   /* NAVIGATION */
   nav {
-	width: 80%;
+	width: 60%;
 	margin: 0 auto;
 	background: #fff;
-	padding: 50px 0;
-	box-shadow: 0px 5px 0px #70a3ea;
+	padding: 1px 0;
+	box-shadow: 0px 5px 0px #aac9ce;
   }
   
   /* By Dominik Biedebach @domobch */
@@ -101,7 +101,7 @@ body {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	margin: auto;
+	margin: 0;
 	width: 0%;
 	content: '.';
 	color: transparent;

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -6,14 +7,22 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
   private payload : any;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   setPayload(payload : any){
     this.payload = payload;
   }
 
+  getPayload(){
+    return this.payload;
+  }
+
+  /**
+   * Checking validity of crendetials
+   * @returns Observable with a JSON boolean
+   */
   checkUser(){
-    // TODO: get 200 from mongo
-    return true;
+    const url = 'http://localhost:8080/login';
+    return this.http.post<any>(url, this.payload, {observe: 'body', responseType: 'json'})
   }
 }

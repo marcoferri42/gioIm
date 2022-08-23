@@ -1,15 +1,15 @@
-body {
-    background-color: #f45b69;
-    font-family: "Asap", sans-serif;
-  }
+.base{
+  background-color: #aac9ce;
+  height: 100%;
+}
   
   .login {
     overflow: hidden;
     background-color: white;
     padding: 40px 30px 30px 30px;
     border-radius: 10px;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 15%;
     left: 50%;
     width: 400px;
     -webkit-transform: translate(-50%, -50%);

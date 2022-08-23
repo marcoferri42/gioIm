@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -7,21 +8,29 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent{
-  @Output() impulseEmitter = new EventEmitter();
-
+  admin = false;
   payload =  {
     pw : "",
     usr : ""
   }
 
-  constructor(public loginService : LoginService) { }
+  constructor(public loginService : LoginService, private router: Router) { }
 
   onClick(){
-    this.loginService.setPayload(this.payload);
+    /**
+     *     this.loginService.setPayload(this.payload);
     this.payload =  {
       pw : "",
       usr : ""
     }
+    this.loginService.checkUser().subscribe((data : any) => this.admin = data);
+    console.log(this.admin);
+     */
+    this.admin = !this.admin; 
+  }
+
+  welcome(){
+    this.router.navigate(['/home'])
   }
 
 }

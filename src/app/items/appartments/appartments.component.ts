@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, OnInit } from '@angular/core';
 import { ItemService } from 'src/app/services/item.service';
 import { MatDialog } from '@angular/material/dialog';
 import { EditorComponent } from 'src/app/components/editor/editor.component';
@@ -10,13 +10,21 @@ import { LoginService } from 'src/app/services/login.service';
   templateUrl: './appartments.component.html',
   styleUrls: ['./appartments.component.scss'],
 })
-export class AppartmentsComponent{
+export class AppartmentsComponent implements OnInit{
 
   page_name = "Appartamenti";
   items : any[] = [];
+  admin = true;
 
   constructor(public itemService : ItemService, public loginService : LoginService, public dialog : MatDialog) {
     this.items = this.itemService.getItems('appartments');
+  }
+  ngOnInit(): void {
+    if(this.loginService.getPayload() != null){
+      this.loginService.checkUser()
+      .subscribe((data : any) => this.admin = data);
+    console.log(this.admin);
+    }
   }
 
   openDialog() {
@@ -36,7 +44,5 @@ export class AppartmentsComponent{
     this.dialog.open(DeleteComponent, { width: '250px'});
   }
 
-  checkUser(){
-    return this.loginService.checkUser();
-  }
+
 }

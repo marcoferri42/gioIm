@@ -1,8 +1,15 @@
 
-<div style="height: 180vw; background-color: #70a3ea;">   
+<div class="base" *ngIf="!admin">   
     <form class="login">
         <input type="text" [(ngModel)]="payload.usr" placeholder="Username" name="usr">
         <input type="password" [(ngModel)]="payload.pw" placeholder="Password" name="pw">
         <button (click) = "onClick()" >Login</button>
+    </form>
+</div>
+
+<div class="base" *ngIf="admin">   
+    <form class="login" style="text-align: center;">
+        <h1>Welcome, {{payload.usr}}!</h1>
+        <button (click) = "welcome()">Home</button>
     </form>
 </div>
